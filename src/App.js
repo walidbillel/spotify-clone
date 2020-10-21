@@ -3,6 +3,7 @@ import Login from './Login';
 
 import './App.css';
 import { getTokenFromUrl } from './spotify';
+import spotifyWebapi from 'spotiy-web-api-js';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -16,11 +17,12 @@ function App() {
     if (_token) {
       setToken(_token);
     }
+
+    console.log(`I have a token 👉 ${token}`);
   }, []);
+
   return (
-    <div className="app">
-      <Login />
-    </div>
+    <div className="app">{token ? <h1>I'm logged in</h1> : <Login />}</div>
   );
 }
 
