@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Login from './Login';
+import Player from './Player';
 
 import './App.css';
 import { getTokenFromUrl } from './spotify';
@@ -27,9 +28,7 @@ function App() {
     console.log(`I have a token 👉 ${token}`);
   }, []);
 
-  return (
-    <div className="app">{token ? <h1>I'm logged in</h1> : <Login />}</div>
-  );
+  return <div className="app">{token ? <Player /> : <Login />}</div>;
 }
 
 export default App;
